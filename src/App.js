@@ -26,6 +26,7 @@ import OrderComplete from "./mainPages/Cart/cartComponents/OrdersComplete";
 import Contact from "./mainPages/Contact/index";
 import { useAuth } from "./context/AuthContext";
 import ScrollToTop from "./components/ScrollUp";
+import Dashboard from "./admin/Dashboard";
 
 function App() {
   const { token } = useAuth();
@@ -39,6 +40,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/mockman" element={<MockApi />} />
         <Route path="/about" element={<About />} />
+        <Route
+            path="/dashboard"
+            element={
+              // <RequiresAuth token={token}>
+                <Dashboard />
+              // </RequiresAuth>
+            }
+          />
 
         <Route
           path="/cart"
@@ -81,6 +90,8 @@ function App() {
         <Route path="/browse" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Error />} />
+
+        
       </Routes>
       <ToastContainer
         position="bottom-right"
